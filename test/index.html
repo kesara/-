@@ -8,19 +8,27 @@
     <h1>BBM Widget Test</h1>
     <form>
       <label for="width">Width</label>
-      <input id="width" />
+      <input id="width" value="400" />
+      <label for="height">Height</label>
+      <input id="height" value="600" />
     </form>
     <hr />
     <div id="broadband-map-widget" class="internet-nz-broadband-map"></div>
     <script>
+      document.getElementById('broadband-map-widget').setAttribute(
+        'style',
+        `display:block;width:${document.getElementById('width').value}px;height:${document.getElementById('height').value}px;`);
       BBMap.init({
-        addressFinderKey: "AD4GVMRWHN389XTKQ7CJ",
+        addressFinderKey: 'AD4GVMRWHN389XTKQ7CJ',
         showMap: true,
         showMapKey: true,
-        technologies: ["fibre","cable","vdsl","adsl"],
+        technologies: ['fibre','cable','vdsl','adsl'],
       });
       document.getElementById('width').addEventListener('change', () => {
-        document.getElementById('broadband-map-widge').style.width = `${document.getElementById('width').value}px`;
+        document.getElementById('broadband-map-widget').style.width = `${document.getElementById('width').value}px`;
+      });
+      document.getElementById('height').addEventListener('change', () => {
+        document.getElementById('broadband-map-widget').style.height = `${document.getElementById('height').value}px`;
       });
     </script>
   </body>
