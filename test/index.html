@@ -6,6 +6,11 @@
   </head>
   <body>
     <h1>BBM Widget Test</h1>
+    <form>
+      <label for="width">Width</label>
+      <input id="width" />
+    </form>
+    <hr />
     <div id="broadband-map-widget" class="internet-nz-broadband-map"></div>
     <script>
       BBMap.init({
@@ -13,6 +18,9 @@
         showMap: true,
         showMapKey: true,
         technologies: ["fibre","cable","vdsl","adsl"],
+      });
+      document.getElementById('width').addEventListener('change', () => {
+        document.getElementById('broadband-map-widge').style.width = `${document.getElementById('width').value}px`;
       });
     </script>
   </body>
