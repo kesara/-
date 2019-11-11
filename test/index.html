@@ -2,15 +2,18 @@
   <head>
     <title>BBM Widget Test</title>
     <link rel="stylesheet" href="https://stage.broadbandmap.nz/main.css">
-<script src="https://stage.broadbandmap.nz/widget.js"></script>
+    <script src="https://stage.broadbandmap.nz/widget.js"></script>
   </head>
   <body>
     <h1>BBM Widget Test</h1>
-    <div id="broadband-map" class="internet-nz-broadband-map"></div>
+    <div id="broadband-map-widget" class="internet-nz-broadband-map"></div>
     <script>
-  BBMap.default.init({
-    addressFinderKey: "AD4GVMRWHN389XTKQ7CJ"
-  });
+      BBMap.init({
+        addressFinderKey: "AD4GVMRWHN389XTKQ7CJ",
+        showMap: true,
+        showMapKey: true,
+        technologies: ["fibre","cable","vdsl","adsl"],
+      });
     </script>
   </body>
 </html>
