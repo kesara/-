@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>BBM Widget Test</h1>
-    <form>
+    <form onsubmit="return false;">
       <label for="width">Width</label>
       <input id="width" value="400" />
     </form>
@@ -22,7 +22,8 @@
         showMapKey: true,
         technologies: ['fibre','cable','vdsl','adsl', 'wireless'],
       });
-      document.getElementById('width').addEventListener('change', () => {
+      document.getElementById('width').addEventListener('change', (e) => {
+        e.preventDefault();
         document.getElementById('broadband-map-widget').style.width = `${document.getElementById('width').value}px`;
       });
     </script>
