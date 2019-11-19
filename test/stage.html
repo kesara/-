@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>BBM Widget Test - Stage</title>
+    <link rel="stylesheet" href="http://stage.broadbandmap.nz/main.css">
+    <script src="http://stage.broadbandmap.nz/widget.js"></script>
+  </head>
+  <body>
+    <h1>BBM Widget Test - Stage</h1>
+    <form onsubmit="return false;">
+      <label for="width">Width</label>
+      <input id="width" value="400" />
+    </form>
+    <hr />
+    <div id="broadband-map-widget" class="internet-nz-broadband-map"></div>
+    <script>
+      document.getElementById('broadband-map-widget').setAttribute(
+        'style',
+        `display:block;width:${document.getElementById('width').value}px;`);
+      BBMap.init({
+        addressFinderKey: 'AD4GVMRWHN389XTKQ7CJ',
+        showMap: true,
+        showMapKey: true,
+        technologies: ['fibre','cable','vdsl','adsl', 'wireless'],
+      });
+      document.getElementById('width').addEventListener('change', (e) => {
+        e.preventDefault();
+        document.getElementById('broadband-map-widget').style.width = `${document.getElementById('width').value}px`;
+      });
+    </script>
+  </body>
+</html>
